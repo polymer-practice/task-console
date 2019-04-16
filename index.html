@@ -1,16 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0;url=demo/" />
-    <title>task-console</title>
-  </head>
-  <body>
-    <!--
-        ELEMENT API DOCUMENTATION SUPPORT COMING SOON
-        Visit demo/index.html to see live examples of your element running.
-        This page will automatically redirect you there when run in the browser
-        with `polymer serve`.
-      -->
-  </body>
-</html>
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="task-console">
+  <template>
+    <h3>[[title]]</h3>
+    <div>
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    class TaskConsole extends Polymer.Element {
+      static get is() { return 'task-console'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: ''
+          }
+        };
+      }
+    }
+
+    window.customElements.define(TaskConsole.is, TaskConsole);
+  </script>
+</dom-module>
